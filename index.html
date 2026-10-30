@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neha Dhanekula for Newborn Screening</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: warm public-health editorial — sticky mini-nav, a filterable JD requirement map (quote -> evidence), spotlight stories, a mission band. */
+:root{
+  --bg:#eef1ea; --surface:#ffffff; --surface-2:#f7f9f3;
+  --fg:#17241f; --muted:#56655d; --faint:#7d8c82;
+  --line:#d8e0d4; --line-2:#e7ecdf;
+  --primary:#0f6b5f; --primary-ink:#0a4a41; --primary-weak:rgba(15,107,95,.10);
+  --accent:#d9971f; --accent-weak:rgba(217,151,31,.14);
+  --sky:#2b6b86;
+  --shadow:0 1px 2px rgba(23,36,31,.05), 0 12px 30px rgba(23,36,31,.06);
+  --radius:16px; --maxw:72rem;
+  --font-display:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;
+  --font-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0b1613; --surface:#122220; --surface-2:#0f1d1a;
+  --fg:#e9f1ea; --muted:#a3b4ab; --faint:#7f9088;
+  --line:#243630; --line-2:#1c2c27;
+  --primary:#46c6ad; --primary-ink:#8fe0cf; --primary-weak:rgba(70,198,173,.12);
+  --accent:#f0b84a; --accent-weak:rgba(240,184,74,.14);
+  --sky:#79b7cf;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 18px 40px rgba(0,0,0,.35);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0b1613; --surface:#122220; --surface-2:#0f1d1a;
+  --fg:#e9f1ea; --muted:#a3b4ab; --faint:#7f9088;
+  --line:#243630; --line-2:#1c2c27;
+  --primary:#46c6ad; --primary-ink:#8fe0cf; --primary-weak:rgba(70,198,173,.12);
+  --accent:#f0b84a; --accent-weak:rgba(240,184,74,.14);
+  --sky:#79b7cf;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 18px 40px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);line-height:1.6;
+  -webkit-font-smoothing:antialiased;font-size:16px}
+.wrap{max-width:var(--maxw);margin-inline:auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--font-display);text-wrap:balance;line-height:1.1;letter-spacing:-.01em;margin:0}
+p{margin:0}
+a{color:var(--primary-ink);text-decoration-thickness:1px;text-underline-offset:2px}
+.eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--primary);margin:0}
+.tnum{font-variant-numeric:tabular-nums}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* top band for safe area */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--surface)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--surface) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:1rem;min-height:58px;padding-block:8px}
+.brand{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;font-size:1.02rem;margin-right:auto}
+.brand span{color:var(--primary)}
+.navlinks{display:flex;gap:.3rem;flex-wrap:wrap}
+.navlinks a{font-size:.85rem;color:var(--muted);text-decoration:none;padding:.35rem .55rem;border-radius:9px;font-weight:600}
+.navlinks a:hover{color:var(--fg);background:var(--primary-weak)}
+.toggle{border:1px solid var(--line);background:var(--surface-2);color:var(--fg);border-radius:10px;
+  width:38px;height:34px;cursor:pointer;font-size:1rem;display:grid;place-items:center;flex:none}
+.toggle:hover{border-color:var(--primary)}
+@media (max-width:620px){.navlinks{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(2.6rem,7vw,5rem) clamp(2rem,5vw,3.2rem)}
+.hero-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr;gap:1.6rem}}
+.hero h1{font-size:clamp(2.3rem,6.2vw,4rem);font-weight:800;margin-top:.7rem}
+.hero h1 em{font-style:normal;color:var(--primary);display:block}
+.lede{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--muted);max-width:40ch;margin-top:1.1rem}
+.hero-cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.6rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.92rem;border-radius:11px;
+  padding:.7rem 1.1rem;text-decoration:none;cursor:pointer;border:1px solid transparent}
+.btn.primary{background:var(--primary);color:#fff}
+:root[data-theme="dark"] .btn.primary,
+:root:not([data-theme="light"]) .btn.primary{color:#07201c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.primary{color:#07201c}}
+.btn.primary:hover{background:var(--primary-ink)}
+.btn.ghost{border-color:var(--line);color:var(--fg);background:var(--surface)}
+.btn.ghost:hover{border-color:var(--primary)}
+
+/* survival-curve motif card */
+.hero-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:1.2rem 1.2rem 1rem;min-width:0}
+.hero-card .cap{font-size:.74rem;color:var(--faint);letter-spacing:.04em;margin-top:.5rem}
+.hero-card svg{width:100%;height:auto;display:block}
+
+/* stat band */
+.stats{background:var(--surface-2);border-block:1px solid var(--line)}
+.stats .wrap{padding-block:clamp(1.4rem,3vw,2rem)}
+.stat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+@media (max-width:860px){.stat-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:480px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+.stat{min-width:0}
+.stat .n{font-family:var(--font-display);font-weight:800;font-size:clamp(1.5rem,3.4vw,2.1rem);color:var(--primary);line-height:1}
+.stat .l{font-size:.8rem;color:var(--muted);margin-top:.35rem;line-height:1.35}
+
+/* generic section */
+section{padding-block:clamp(2.6rem,6vw,4.2rem)}
+.sec-head{max-width:46rem;margin-bottom:1.8rem}
+.sec-head h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:700;margin-top:.5rem}
+.sec-head p{color:var(--muted);margin-top:.7rem;font-size:1.05rem}
+
+/* filter map */
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.chip{font-family:var(--font-body);font-weight:600;font-size:.85rem;border:1px solid var(--line);background:var(--surface);
+  color:var(--muted);border-radius:999px;padding:.45rem .9rem;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--primary);color:#fff;border-color:var(--primary)}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#07201c}
+.chip:hover{border-color:var(--primary)}
+.map-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media (max-width:760px){.map-grid{grid-template-columns:1fr}}
+.req{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.15rem;
+  display:flex;flex-direction:column;gap:.6rem;min-width:0}
+.req .tag{align-self:flex-start;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--primary);background:var(--primary-weak);padding:.2rem .5rem;border-radius:6px}
+.req .ask{font-weight:600;font-size:1rem;color:var(--fg);padding-left:.8rem;border-left:3px solid var(--accent)}
+.req .have{font-size:.93rem;color:var(--muted)}
+.req .have b{color:var(--fg);font-weight:600}
+
+/* spotlights */
+.spot{display:flex;flex-direction:column;gap:1.1rem}
+.story{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+  display:grid;grid-template-columns:.9fr 1.4fr;gap:0;overflow:hidden}
+@media (max-width:760px){.story{grid-template-columns:1fr}}
+.story .side{background:linear-gradient(160deg,var(--primary-weak),transparent);padding:1.4rem 1.3rem;border-right:1px solid var(--line);
+  display:flex;flex-direction:column;gap:.5rem;min-width:0}
+@media (max-width:760px){.story .side{border-right:none;border-bottom:1px solid var(--line)}}
+.story .side .role{font-size:.78rem;color:var(--faint);font-weight:600}
+.story .side h3{font-size:1.35rem;font-weight:700}
+.story .side .when{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.story .body{padding:1.4rem 1.3rem;display:flex;flex-direction:column;gap:.8rem;min-width:0}
+.story .body p{color:var(--muted);font-size:.96rem}
+.story .body p b{color:var(--fg);font-weight:600}
+.story ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.35rem}
+.story li{color:var(--muted);font-size:.93rem}
+.story li b{color:var(--fg);font-weight:600}
+.terms{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.3rem}
+.term{font-size:.72rem;font-weight:600;color:var(--sky);border:1px solid var(--line);border-radius:7px;padding:.18rem .5rem;background:var(--surface-2)}
+
+/* mission band */
+.mission{background:var(--primary);color:#eafff8}
+:root[data-theme="dark"] .mission,
+:root:not([data-theme="light"]) .mission{background:var(--surface-2);color:var(--fg);border-block:1px solid var(--line)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mission{background:var(--surface-2);color:var(--fg)}}
+.mission .wrap{padding-block:clamp(2.6rem,6vw,4rem)}
+.mission h2{font-size:clamp(1.6rem,3.6vw,2.3rem);font-weight:700;color:#fff;max-width:24ch}
+:root[data-theme="dark"] .mission h2,
+:root:not([data-theme="light"]) .mission h2{color:var(--fg)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mission h2{color:var(--fg)}}
+.mission p{margin-top:1rem;max-width:58ch;opacity:.92;font-size:1.05rem}
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.8rem}
+@media (max-width:720px){.mission-grid{grid-template-columns:1fr}}
+.mcard{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:13px;padding:1.1rem;min-width:0}
+:root[data-theme="dark"] .mcard,
+:root:not([data-theme="light"]) .mcard{background:var(--surface);border-color:var(--line)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mcard{background:var(--surface);border-color:var(--line)}}
+.mcard h4{font-size:1rem;color:#fff;margin-bottom:.35rem}
+.mcard p{margin-top:.2rem;font-size:.9rem;opacity:.9}
+:root[data-theme="dark"] .mcard h4,:root:not([data-theme="light"]) .mcard h4{color:var(--fg)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mcard h4{color:var(--fg)}}
+
+/* toolkit */
+.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media (max-width:760px){.tool-grid{grid-template-columns:1fr}}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:1.1rem;min-width:0}
+.tool h4{font-size:.95rem;display:flex;align-items:center;gap:.5rem}
+.tool h4::before{content:"";width:9px;height:9px;border-radius:3px;background:var(--accent);flex:none}
+.tool p{color:var(--muted);font-size:.88rem;margin-top:.5rem}
+
+/* contact */
+.contact{border-top:1px solid var(--line);background:var(--surface-2)}
+.contact .wrap{padding-block:clamp(2.4rem,5vw,3.4rem);display:flex;flex-wrap:wrap;gap:1.4rem;align-items:flex-end;justify-content:space-between}
+.contact h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700}
+.contact .lede2{color:var(--muted);margin-top:.5rem;max-width:40ch}
+.reach{display:flex;flex-direction:column;gap:.55rem;min-width:0}
+.reach .row{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.reach .v{font-weight:600;font-variant-numeric:tabular-nums;word-break:break-all}
+.copy{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:8px;
+  font-size:.75rem;font-weight:600;padding:.25rem .55rem;cursor:pointer}
+.copy:hover{border-color:var(--primary);color:var(--fg)}
+footer{padding-block:1.6rem;text-align:center;color:var(--faint);font-size:.8rem}
+footer .note{max-width:52rem;margin-inline:auto}
+
+@media (prefers-reduced-motion:no-preference){
+  .req,.story,.tool{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .req:hover,.tool:hover{transform:translateY(-2px);border-color:var(--primary)}
+}
+.note-card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(1.4rem,4vw,2.4rem);max-width:54rem}
+#note h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700;margin-top:.5rem}
+#note p{color:var(--muted);font-size:1.02rem;margin-top:1rem;max-width:62ch}
+#note p b{color:var(--fg);font-weight:600}</style>
+</head>
+<body>
+
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="brand">Neha&nbsp;Dhanekula <span>·</span> Data</div>
+    <div class="navlinks">
+      <a href="#map">The role, matched</a>
+      <a href="#work">Spotlights</a>
+      <a href="#mission">Mission</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="toggle" id="themeBtn" aria-label="Switch light or dark theme" title="Switch theme">◐</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Candidate · Newborn Screening Data Manager</p>
+      <h1>From lab signal <em>to reliable decision.</em></h1>
+      <p class="lede">A data analyst who turns complex clinical, genomic, and program data into trustworthy answers, then automates the process so it stays that way.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#map">See how I match the role</a>
+        <a class="btn ghost" href="#work">Read the work</a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Survival-analysis motif">
+      <svg viewBox="0 0 320 170" role="img" aria-label="Stylised Kaplan-Meier style step-down survival curve">
+        <defs>
+          <linearGradient id="fillg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="var(--primary)" stop-opacity="0.22"/>
+            <stop offset="1" stop-color="var(--primary)" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <line x1="34" y1="12" x2="34" y2="140" stroke="var(--line)" stroke-width="1.5"/>
+        <line x1="34" y1="140" x2="306" y2="140" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="8" y="22" font-family="var(--font-body)" font-size="9" fill="var(--faint)">1.0</text>
+        <text x="8" y="140" font-family="var(--font-body)" font-size="9" fill="var(--faint)">0.0</text>
+        <text x="150" y="160" font-family="var(--font-body)" font-size="9" fill="var(--faint)">time</text>
+        <text x="2" y="80" font-family="var(--font-body)" font-size="9" fill="var(--faint)" transform="rotate(-90 10 80)">survival</text>
+        <path d="M34,20 H70 V30 H104 V34 H140 V52 H168 V58 H196 V86 H228 V96 H262 V128 H306 V140 H34 Z" fill="url(#fillg)" stroke="none"/>
+        <path d="M34,20 H70 V30 H104 V34 H140 V52 H168 V58 H196 V86 H228 V96 H262 V128 H306" fill="none" stroke="var(--primary)" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M34,16 H86 V24 H126 V40 H160 V48 H206 V60 H250 V74 H306" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-dasharray="5 4" stroke-linejoin="round"/>
+      </svg>
+      <p class="cap">Capstone survival analysis — Cox proportional hazards, Kaplan-Meier, log-rank. Motif, not plotted data.</p>
+    </aside>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat-grid">
+      <div class="stat"><div class="n tnum">242</div><div class="l">patient multi-omics cohort, integrated and analyzed</div></div>
+      <div class="stat"><div class="n tnum">0.99</div><div class="l">AUC up to, survival-prediction models</div></div>
+      <div class="stat"><div class="n tnum">50%+</div><div class="l">manual reporting time cut, City of Tempe</div></div>
+      <div class="stat"><div class="n tnum">25,000+</div><div class="l">survey records standardized for reporting</div></div>
+      <div class="stat"><div class="n tnum">6</div><div class="l">interactive Tableau dashboards built</div></div>
+      <div class="stat"><div class="n tnum">2</div><div class="l">city programs owned, data work end to end</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="map">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The role, matched</p>
+      <h2>Every requirement, and what I've already done</h2>
+      <p>Each card is a duty or qualification from the posting, paired with real work from my record. Filter by category.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter requirements">
+      <button class="chip" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="Duties" aria-pressed="false">Job duties</button>
+      <button class="chip" data-filter="Knowledge" aria-pressed="false">Knowledge</button>
+      <button class="chip" data-filter="Skills" aria-pressed="false">Skills</button>
+      <button class="chip" data-filter="Abilities" aria-pressed="false">Abilities</button>
+    </div>
+    <div class="map-grid" id="mapGrid">
+
+      <article class="req" data-cat="Duties">
+        <span class="tag">Job duty</span>
+        <p class="ask">Plan and execute complex quantitative program-performance and population-impact evaluations from statistical analyses.</p>
+        <p class="have">In my capstone I ran <b>population-level survival analysis</b> on a 242-patient multi-omics cohort using Cox proportional hazards, Kaplan-Meier, and log-rank tests. At the City of Tempe I evaluate program performance across three data sources using correlation, trend, and exploratory predictive analysis.</p>
+      </article>
+
+      <article class="req" data-cat="Duties">
+        <span class="tag">Job duty</span>
+        <p class="ask">Develop, document, and review data-analysis methodologies, workflows, and protocols, including analytical cutoffs.</p>
+        <p class="have">I designed and documented <b>standardized intake workflows and KPI protocols</b> at the City of Tempe, built a documented feature-selection and preprocessing methodology for the capstone, and set model classification thresholds and batch-flagging rules at ASU Core.</p>
+      </article>
+
+      <article class="req" data-cat="Duties">
+        <span class="tag">Job duty</span>
+        <p class="ask">Direct the data function, set priorities, and guide the people and processes around it.</p>
+        <p class="have">I am the <b>sole analyst owning two city programs end to end</b>, advising program managers on what to track. I led the data-integration and survival-analysis workstreams on a three-person capstone team, and built escalation workflows that route and prioritize advisers' documentation automatically.</p>
+      </article>
+
+      <article class="req" data-cat="Duties">
+        <span class="tag">Job duty</span>
+        <p class="ask">Design and prepare reports for internal and external requests for data and technical assistance.</p>
+        <p class="have">I delivered a <b>milestone performance report</b> to City of Tempe leadership, produced DOE-facing reporting at ASU Core, built six Tableau dashboards for stakeholders at DSL EST, and presented capstone findings to faculty.</p>
+      </article>
+
+      <article class="req" data-cat="Duties">
+        <span class="tag">Job duty</span>
+        <p class="ask">Coordinate database upgrades and modifications across program staff, IT, and vendors.</p>
+        <p class="have">I connect intake and records across <b>Microsoft Forms, Excel, and SharePoint with Power Automate</b>, coordinating with program staff, and designed a proposed SQL schema at ASU Core for future retrieval and natural-language querying.</p>
+      </article>
+
+      <article class="req" data-cat="Knowledge">
+        <span class="tag">Knowledge</span>
+        <p class="ask">Descriptive and inferential statistical analysis.</p>
+        <p class="have"><b>Cox proportional hazards, Kaplan-Meier, and log-rank</b> in the capstone; regression and correlation analysis at ASU Core and the City of Tempe; coursework and project depth in causal inference, quasi-experimental design, and SEM.</p>
+      </article>
+
+      <article class="req" data-cat="Knowledge">
+        <span class="tag">Knowledge</span>
+        <p class="ask">Database architecture, data queries, and relational databases (SAS, SPSS, SQL); reporting methods.</p>
+        <p class="have">Advanced <b>SQL and relational database design</b> (DSL EST, ASU Core schema), with Python and R running the same statistical work SAS and SPSS are used for, feeding dashboards and reports.</p>
+      </article>
+
+      <article class="req" data-cat="Knowledge">
+        <span class="tag">Knowledge</span>
+        <p class="ask">Data visualization (Tableau, Power BI).</p>
+        <p class="have">Built <b>six interactive Tableau dashboards</b> for non-technical stakeholders at DSL EST and dashboards for family-wellbeing trends at Fundacion Paraguaya; fluent in Power BI.</p>
+      </article>
+
+      <article class="req" data-cat="Knowledge">
+        <span class="tag">Knowledge</span>
+        <p class="ask">Laboratory data outputs and testing methodologies.</p>
+        <p class="have">At ASU Core I cleaned and analyzed <b>laboratory measurement data</b> (lifetime, IV, and efficiency) across a production line; in the capstone I worked with genomic lab outputs, sequencing-derived mutations, methylation arrays, and copy-number data.</p>
+      </article>
+
+      <article class="req" data-cat="Knowledge">
+        <span class="tag">Knowledge</span>
+        <p class="ask">The cause of inherited disorders, their effects, and their laboratory evaluation.</p>
+        <p class="have">My capstone analyzed <b>genetic drivers of breast-cancer survival</b>: BRCA mutation status, somatic mutations, DNA methylation, and PAM50 molecular subtypes, evaluating how genomic markers relate to patient outcomes.</p>
+      </article>
+
+      <article class="req" data-cat="Knowledge">
+        <span class="tag">Knowledge</span>
+        <p class="ask">Performance management and continuous quality improvement.</p>
+        <p class="have">I rebuilt an unreliable manual reporting process into <b>standardized, automated workflows with redefined KPIs</b>, and optimized a multi-stage production workflow at ASU Core, continuous quality improvement in practice.</p>
+      </article>
+
+      <article class="req" data-cat="Knowledge">
+        <span class="tag">Knowledge</span>
+        <p class="ask">Laboratory Information Management Systems (LIMS).</p>
+        <p class="have">I build and maintain the kind of <b>structured data systems a LIMS provides</b>: Power Automate, Forms, SharePoint, and relational databases that capture, route, and validate records end to end, which transfers directly to a lab system.</p>
+      </article>
+
+      <article class="req" data-cat="Skills">
+        <span class="tag">Skill</span>
+        <p class="ask">Project management.</p>
+        <p class="have">I own two city programs' data work end to end, from intake design through reporting, and led a capstone from <b>multi-omics data integration through survival analysis</b>.</p>
+      </article>
+
+      <article class="req" data-cat="Skills">
+        <span class="tag">Skill</span>
+        <p class="ask">Spreadsheet analysis (Excel, Google Sheets).</p>
+        <p class="have">Advanced Excel across intake, reporting, and the My Brother's Keeper milestone analysis, with standardized templates others reuse.</p>
+      </article>
+
+      <article class="req" data-cat="Skills">
+        <span class="tag">Skill</span>
+        <p class="ask">Scripting of automated workflow.</p>
+        <p class="have">Three <b>Power Automate workflows</b> (a fourth underway) spanning onboarding to offboarding, plus Python ETL and reporting pipelines.</p>
+      </article>
+
+      <article class="req" data-cat="Skills">
+        <span class="tag">Skill</span>
+        <p class="ask">Writing and presenting complex statistical findings.</p>
+        <p class="have">Presented capstone survival-analysis findings, wrote DOE-facing reports, and delivered a milestone performance summary to program leadership, translating statistics for non-technical audiences.</p>
+      </article>
+
+      <article class="req" data-cat="Skills">
+        <span class="tag">Skill</span>
+        <p class="ask">Leadership and effective working relationships.</p>
+        <p class="have">I direct the data function for two programs, coordinate cross-functional teams, and spent four years in residential life coordinating across housing, counseling, and campus safety.</p>
+      </article>
+
+      <article class="req" data-cat="Abilities">
+        <span class="tag">Ability</span>
+        <p class="ask">Problem solving.</p>
+        <p class="have">I diagnosed a broken, manual reporting process end to end and rebuilt it, and used an <b>ablation study</b> to isolate the dominant predictive signal in a multi-omics model.</p>
+      </article>
+
+      <article class="req" data-cat="Abilities">
+        <span class="tag">Ability</span>
+        <p class="ask">Maintain effective working relationships.</p>
+        <p class="have">I partner daily with program managers, advisers, and department leadership, and collaborated closely with a cross-functional capstone team.</p>
+      </article>
+
+      <article class="req" data-cat="Abilities">
+        <span class="tag">Ability</span>
+        <p class="ask">Support a diverse, multicultural workforce and an inclusive environment.</p>
+        <p class="have">I built the data backbone for <b>College Connect</b> (first-generation and lower-income students) and analyzed outcomes for <b>My Brother's Keeper</b> (boys and young men of color), work rooted in widening who gets served well.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="work" style="background:var(--surface-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Spotlights</p>
+      <h2>Three pieces of work this role runs on</h2>
+      <p>Data management and automation, genomic and statistical analysis, and laboratory data, each one a direct rehearsal for Newborn Screening.</p>
+    </div>
+    <div class="spot">
+
+      <article class="story">
+        <div class="side">
+          <span class="role">City of Tempe · Community Health &amp; Human Services</span>
+          <h3>Rebuilding a program's data backbone</h3>
+          <span class="when">Jul 2026 - Present · Data Analyst</span>
+        </div>
+        <div class="body">
+          <p>Two city health programs were tracking their work by hand. Documentation was inconsistent, so leadership could not trust the numbers. <b>I own the data for both programs end to end.</b></p>
+          <ul>
+            <li>Built <b>three automated Power Automate workflows</b> (a fourth underway) spanning onboarding to offboarding, cutting manual documentation and reporting time by an estimated <b>50% or more</b>.</li>
+            <li>Redesigned intake forms and <b>redefined KPIs</b> so the programs capture only decision-relevant data, with validation and quality checks built in.</li>
+            <li>Analyzed education and employment outcomes across three data sources and delivered a milestone performance report to leadership.</li>
+            <li>Provide the ongoing support: when a workflow fails or a red flag appears, I resolve it.</li>
+          </ul>
+          <div class="terms"><span class="term">Power Automate</span><span class="term">KPI design</span><span class="term">Data quality</span><span class="term">CQI</span><span class="term">Program evaluation</span></div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="side">
+          <span class="role">Arizona State University · Senior Capstone</span>
+          <h3>Genomic survival analysis, end to end</h3>
+          <span class="when">Jan 2026 - May 2026 · Team of 3</span>
+        </div>
+        <div class="body">
+          <p>Predicting breast-cancer survival from multi-omics genomics, using TCGA data through UCSC Xena. <b>My workstreams were data integration, the survival-prediction models, and the survival analysis.</b></p>
+          <ul>
+            <li>Integrated <b>somatic mutations, copy-number variants, DNA methylation, and clinical survival data</b> into a 242-patient cohort through a feature-selection pipeline.</li>
+            <li>Built logistic-regression and neural-network survival models (<b>AUC up to 0.99</b>) and ran an ablation isolating somatic mutations as the dominant signal.</li>
+            <li>Ran <b>Cox proportional-hazards, Kaplan-Meier, and log-rank</b> analysis across BRCA status and tumor subtypes, finding tumor subtype, not BRCA status, the primary prognostic driver.</li>
+          </ul>
+          <div class="terms"><span class="term">Cox PH</span><span class="term">Kaplan-Meier</span><span class="term">Methylation</span><span class="term">SNVs</span><span class="term">Inferential stats</span></div>
+        </div>
+      </article>
+
+      <article class="story">
+        <div class="side">
+          <span class="role">ASU Core Research Facilities</span>
+          <h3>Laboratory data into decisions</h3>
+          <span class="when">May 2025 - Jan 2026 · Data Analyst</span>
+        </div>
+        <div class="body">
+          <p>A semiconductor research line generated raw measurement data across many batches that was slow to compare and report. <b>I turned the lab outputs into weekly answers.</b></p>
+          <ul>
+            <li>Built Python pipelines to clean, validate, and visualize <b>laboratory data outputs</b> (lifetime, IV, and efficiency) across 10+ machines and 12 batches a month.</li>
+            <li>Applied <b>regression and correlation analysis</b> to flag underperforming batches and support process-quality improvement.</li>
+            <li>Automated weekly reporting used in DOE meetings, eliminating about six hours a week of manual preparation.</li>
+          </ul>
+          <div class="terms"><span class="term">Lab measurement data</span><span class="term">Regression</span><span class="term">ETL</span><span class="term">Python</span><span class="term">DOE reporting</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="mission" id="mission">
+  <div class="wrap">
+    <p class="eyebrow" style="color:inherit;opacity:.85">Why this role</p>
+    <h2>Newborn screening is signal turned into a healthy start.</h2>
+    <p>Every screen is a lab result that has to be accurate, fast, and trusted, because a family's first days depend on it. That is the work I keep choosing: taking complex clinical and program data and making it reliable for the people it serves. My record is public-sector and mission-driven by design.</p>
+    <div class="mission-grid">
+      <div class="mcard"><h4>Public-sector, already</h4><p>Two City of Tempe community-health programs, with an ASU research line and nonprofit field work behind it.</p></div>
+      <div class="mcard"><h4>Equity in the data</h4><p>Built systems serving first-generation students and analyzed outcomes for boys and young men of color.</p></div>
+      <div class="mcard"><h4>Accuracy as the point</h4><p>A metric discipline where no number ships unless it can be defended, which is how screening programs have to run.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="toolkit">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Toolkit</p>
+      <h2>What I reach for</h2>
+    </div>
+    <div class="tool-grid">
+      <div class="tool"><h4>Statistics</h4><p>Descriptive and inferential statistics, survival analysis (Cox, Kaplan-Meier, log-rank), regression, causal inference, quasi-experimental design, SEM.</p></div>
+      <div class="tool"><h4>Databases &amp; reporting</h4><p>SQL and relational database design, complex queries, Tableau, Power BI, Excel, dashboard design, KPI definition.</p></div>
+      <div class="tool"><h4>Data management &amp; automation</h4><p>Multi-source integration, ETL pipelines, Python (pandas, NumPy), R, Microsoft Power Automate, scripting, data validation.</p></div>
+      <div class="tool"><h4>Genomic &amp; scientific data</h4><p>TCGA / UCSC Xena multi-omics, somatic mutations, SNVs and copy number, DNA methylation, laboratory measurement data.</p></div>
+      <div class="tool"><h4>Quality &amp; process</h4><p>Continuous quality improvement, performance management, process redesign, requirements gathering, documentation.</p></div>
+      <div class="tool"><h4>Communication</h4><p>Writing and presenting statistical findings for non-technical audiences, stakeholder partnership, cross-functional coordination.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="note" style="background:var(--surface-2);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="note-card">
+      <p class="eyebrow">A note on being early-career</p>
+      <h2>Why I'm putting myself forward.</h2>
+      <p>I graduated six months ago, and I know how that can read. So here is what it actually means. A data science education today is built differently: we are trained to build and run systems end to end, not only to analyze what lands on our desk. I have spent that training on real work, automating a program's reporting, owning its data on my own, and taking a genomic study from raw multi-omics files to survival models and defensible conclusions.</p>
+      <p>The posting lists five years and a molecular-biology background as a <b>selective preference, not a minimum qualification</b>. That is why I am making the case with evidence rather than a tenure count: the work above already does what the role asks. I am early in my career, clear about it, and ready to own this one.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk about the screening data.</h2>
+      <p class="lede2">B.S. Data Science, Arizona State University, 2026. Based in Tempe, Arizona.</p>
+    </div>
+    <div class="reach">
+      <div class="row"><span class="v" id="email">nehad080206@gmail.com</span><button class="copy" data-copy="email">Copy</button></div>
+      <div class="row"><span class="v" id="phone">623-302-6286</span><button class="copy" data-copy="phone">Copy</button></div>
+      <div class="row"><span class="v">linkedin.com/in/neha-dhanekula</span><a class="copy" href="https://linkedin.com/in/neha-dhanekula" target="_blank" rel="noopener">Open</a></div>
+    </div>
+  </div>
+  <footer><p class="note">Prepared by Neha Dhanekula as a personal candidate portfolio for the State of Arizona / ADHS Newborn Screening Data Manager posting. Not affiliated with or endorsed by ADHS or the State of Arizona. Every figure traces to documented work.</p></footer>
+</section>
+
+<script>
+(function(){
+  "use strict";
+  // theme toggle
+  var root=document.documentElement, btn=document.getElementById("themeBtn");
+  function current(){
+    var set=root.getAttribute("data-theme");
+    if(set) return set;
+    return (window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light";
+  }
+  try{var saved=localStorage.getItem("nd-theme"); if(saved){root.setAttribute("data-theme",saved);}}catch(e){}
+  if(btn){btn.addEventListener("click",function(){
+    var next=current()==="dark"?"light":"dark";
+    root.setAttribute("data-theme",next);
+    try{localStorage.setItem("nd-theme",next);}catch(e){}
+  });}
+  // filter map
+  var grid=document.getElementById("mapGrid");
+  var chips=document.querySelectorAll(".chip");
+  chips.forEach(function(c){
+    c.addEventListener("click",function(){
+      var f=c.getAttribute("data-filter");
+      chips.forEach(function(x){x.setAttribute("aria-pressed", x===c?"true":"false");});
+      grid.querySelectorAll(".req").forEach(function(card){
+        card.hidden = !(f==="all" || card.getAttribute("data-cat")===f);
+      });
+    });
+  });
+  // copy buttons
+  document.querySelectorAll(".copy[data-copy]").forEach(function(b){
+    b.addEventListener("click",function(){
+      var el=document.getElementById(b.getAttribute("data-copy"));
+      if(!el) return;
+      var txt=el.textContent.trim(), done=function(){var t=b.textContent;b.textContent="Copied";setTimeout(function(){b.textContent=t;},1400);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(done).catch(function(){select(el);});
+      } else {select(el);}
+    });
+  });
+  function select(el){try{var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}}
+})();
+</script>
+
+</body>
+</html>
